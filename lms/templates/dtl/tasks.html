@@ -1,0 +1,33 @@
+{% extends "partials/base.html" %}
+
+{% block title %}
+    DTL app
+{% endblock title %}
+     
+{% block body %}
+
+{% include "partials/header.html" %}
+<h2> {{ user }}</h2>
+<div>
+    Items
+    <ol>
+        {% for item in cart_items %}
+            <li>{{ item }}</li>
+        {% empty %}
+            <p>Empty list</p>
+        {% endfor %}
+        
+    </ol>
+</div>
+<div>
+    {% if is_favorite %}
+        <p>Item marked as favorite</p>
+    {% else %}
+        <p>Item not marked as favorite</p>
+    {% endif %}
+</div>
+<div>You have 5 items in your cart</div>
+
+
+
+{% endblock body %}  
